@@ -172,10 +172,14 @@ class ChatService:
             self.req_model = "gpt-4"
         elif "gpt-3.5" in self.origin_model:
             self.req_model = "text-davinci-002-render-sha"
+        elif "gpt-4.1-mini" in self.origin_model:
+            self.req_model = "gpt-4.1-mini"
+        elif "o4-mini" in self.origin_model:
+            self.req_model = "o4-mini"
         elif "auto" in self.origin_model:
             self.req_model = "auto"
         else:
-            self.req_model = "gpt-4o"
+            self.req_model = self.origin_model
 
     async def get_chat_requirements(self):
         if conversation_only:
